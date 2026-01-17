@@ -7,5 +7,6 @@ namespace ecommerce.Models
         [Key]
         public int Customer_Id { get; set; }
         public string Customer_Name { get; set; }
+        public string Customer_Address{ get; set; }
     }
 } 
