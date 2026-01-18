@@ -8,4 +8,4 @@ namespace ecommerce.Models
         public int Customer_Id { get; set; }
         public string Customer_Name { get; set; }
     }
-}
+} 
