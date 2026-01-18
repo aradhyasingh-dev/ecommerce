@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ecommerce.Models;
 
@@ -10,9 +11,11 @@ using ecommerce.Models;
 namespace ecommerce.Migrations
 {
     [DbContext(typeof(MyContext))]
-    partial class MyContextModelSnapshot : ModelSnapshot
+    [Migration("20260119064317_feedbackMigration")]
+    partial class feedbackMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -139,27 +142,6 @@ namespace ecommerce.Migrations
                     b.HasKey("Customer_id");
 
                     b.ToTable("tbl_customer");
-                });
-
-            modelBuilder.Entity("ecommerce.Models.Faqs", b =>
-                {
-                    b.Property<int>("faq_id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("faq_id"));
-
-                    b.Property<string>("faq_answer")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("faq_question")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("faq_id");
-
-                    b.ToTable("tbl_faqs");
                 });
 
             modelBuilder.Entity("ecommerce.Models.Feedback", b =>
